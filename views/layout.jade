@@ -1,0 +1,45 @@
+doctype 5
+html
+  include head
+  body
+    div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.container
+          a.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='/') #{title}
+          div.nav-collapse.collapse
+            ul.nav
+              li.active
+                a(href='/') 首页
+                - if(!user)
+                  li
+                    a(href='/login') 登录
+                  li
+                    a(href='/signin') 注册
+                - else
+                  li
+                    a(href='/signout') 退出
+            - if(!user)
+              form.navbar-form.pull-right(method='post',action='/login')
+                input#email.span2(type='text', name='email', placeholder='电子邮箱')
+                &nbsp;
+                input#password.span2(type='password', name='password', placeholder='密码')
+                button.btn(type='submit') 登录
+            - else
+              ul.nav.pull-right
+                <li><a href="#">#{user.email}</a></li>
+    .container
+      - if(success)
+        div.alert.alert-success= success
+      - if (error)
+        div.alert.alert-error= error
+      block content
+      hr
+      footer
+        p &copy; guojiaming 2013
+    
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/bootstrap.js')
