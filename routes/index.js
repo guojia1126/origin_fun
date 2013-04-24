@@ -49,6 +49,10 @@ exports.doSignIn = function(req, res){
   });
 };
 
+exports.login = function (req, res) {
+  res.render('login');
+};
+
 exports.doLogin = function (req, res) {
   var password = myUtils.getPassword(req.body.password);
   //查找用户

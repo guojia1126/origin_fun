@@ -54,11 +54,15 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/u/:email', user.user);
+app.get('/login', routes.login);
 app.get('/signin', routes.signIn);
 app.post('/signin', routes.doSignIn);
 app.post('/login', routes.doLogin);
 app.get('/signout', routes.signOut);
-app.get('/post', post.post);
+app.post('/post', function(req, res, next) {
+  console.log(req.body);
+  console.log(req.files);
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
