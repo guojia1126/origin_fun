@@ -10,8 +10,7 @@ block content
           input#email.input-xlarge(type='text', name='email', placeholder='电子邮箱')
           div#alertdiv1.alert.in(style='display:none')
             button.close(type='button', data-dismiss='alert') x
-            :markdown
-              **提醒！**请输入电子邮箱地址
+            | <strong>提醒！</strong>请输入电子邮箱地址
 
       div.control-group
         label.control-label(for='password') 密码
@@ -19,8 +18,7 @@ block content
           input#password.input-xlarge(type='password', name='password', placeholder='密码')
           div#alertdiv2.alert.in(style='display:none')
             button.close(type='button', data-dismiss='alert') x
-            :markdown
-              **提醒！**请输入密码
+            | <strong>提醒！</strong>请输入密码
 
       div.form-actions
         button#submitbtn.btn.btn-large.btn-primary(type='button', onclick='doLogin();') 登录
