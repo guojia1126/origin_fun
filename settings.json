@@ -2,9 +2,13 @@
   "app": {
     "title": "Origin"
   },
-  "db": {
-    "type":"mongo",
-    "dburl":"mongodb://localhost/origin"
+  "mongo": {
+    "hostname":"localhost",
+    "port":27017,
+    "username":"",
+    "password":"",
+    "name":"",
+    "db":"origin"
   },
   "cookieSecret":"origin_cs20130419_only"
 }

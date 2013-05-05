@@ -34,15 +34,16 @@ exports.doSignIn = function(req, res){
     if(err){
       res.cookie('error',err);
       console.log(err);
-      return res.redirect('/reg');
+      return res.redirect('/signin');
     }
     user2reg.save(function(err){
       if(err) {
         res.cookie('error',err);
         console.log(err);
-        return res.redirect('/reg');
+        return res.redirect('/signin');
       }
-      res.cookie('user', user);
+      res.cookie('user', user2reg);
+      console.log(user2reg.email+'注册成功');
       res.cookie('success','注册成功');
       res.redirect('/');
     });
