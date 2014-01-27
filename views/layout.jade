@@ -1,31 +1,31 @@
-doctype 5
+doctype html
 html
   include head
   body
-    div.navbar.navbar-inverse.navbar-fixed-top
-      div.navbar-inner
-        div.container
-          a.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+    div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      div.container
+        div.navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.brand(href='/') #{title}
-          div.nav-collapse.collapse
-            ul.nav
-              li.active
-                a(href='/') 首页
-                - if(!user)
-                  li
-                    a(href='/login') 登录
-                  li
-                    a(href='/signin') 注册
-                - else
-                  li
-                    a(href='/signout') 退出
-            - if(user)
-              ul.nav.pull-right
-                li
-                  a(href='/') #{user.email}
+          a.navbar-brand(href='/') #{title}
+        div.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='/') 首页
+            - if(!user)
+              li
+                a(href='/login') 登录
+              li
+                a(href='/signin') 注册
+            - else
+              li
+                a(href='/signout') 退出
+          - if(user)
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/') #{user.email}
     .container
       - if(success)
         div.alert.alert-success= success
