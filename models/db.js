@@ -1,13 +1,14 @@
 var settings = require('../settings'),
   mongoose = require('mongoose');
 
+var mongo = null;
 if(process.env.VCAP_SERVICES){
   var env = JSON.parse(process.env.VCAP_SERVICES);
-  var mongo = env['mongodb-2.0'][0]['credentials'];
+  mongo = env['mongodb-2.0'][0]['credentials'];
   console.log(mongo);
 }
 else{
-  var mongo =settings.mongo;
+  mongo =settings.mongo;
 }
 
 var generate_mongo_url = function(obj){
