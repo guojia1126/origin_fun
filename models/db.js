@@ -21,7 +21,7 @@ var generate_mongo_url = function(obj){
   else{
     return "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
   }
-}
+};
 
 
 module.exports = mongoose.connect(generate_mongo_url(mongo));
