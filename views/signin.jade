@@ -5,7 +5,7 @@ block content
     h2.form-signin-heading 用户注册
     .form-group
       label(for='email') 电子邮箱
-      input#email.form-control(type='text', name='email', placeholder='电子邮箱', required, autofocus)
+      input#email.form-control(type='email', name='email', placeholder='电子邮箱',check-type="mail", required, autofocus)
     .form-group
       label(for='nickname') 昵称
       input#nickname.form-control(type='text', name='nickname', placeholder='昵称', required)
@@ -13,15 +13,14 @@ block content
       label(for='password') 密码
       input#password.form-control(type='password', name='password', placeholder='密码', required)
       label(for='password-repeat') 请重复输入
-      input#password-repeat.form-control(type='password', name='password-repeat', placeholder='请重复输入', required)
-    button#submitbtn.btn.btn-lg.btn-primary.btn-block(type='submit', onclick='return check()') 注册
+      input#password-repeat.form-control(type='password', name='password-repeat', placeholder='请重复输入', required, oninput="check(this)")
+    button#submitbtn.btn.btn-lg.btn-primary.btn-block(type='submit') 注册
   script.
-    function check() {
-      if($('#password').val()!=$('#password-repeat').val()){
-        alert('两次输入密码不一致');
-        return false;
-      }else{
-        return true;
-      }
+    function check(input) {
+        if (input.value != $('#password').val()) {
+            input.setCustomValidity('两次输入的密码不相等.');
+        } else {
+            input.setCustomValidity('');
+       }
     }
   link(rel='stylesheet', href='/stylesheets/signin.css')
