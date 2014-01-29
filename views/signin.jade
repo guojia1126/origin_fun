@@ -18,7 +18,7 @@ block content
   script.
     function check(input) {
         if (input.value != $('#password').val()) {
-            input.setCustomValidity('两次输入的密码不相等.');
+            input.setCustomValidity('两次输入的密码不相等，请重新输入');
         } else {
             input.setCustomValidity('');
        }
