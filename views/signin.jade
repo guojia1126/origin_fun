@@ -13,7 +13,8 @@ block content
       label(for='password') 密码
       input#password.form-control(type='password', name='password', placeholder='密码', required)
       label(for='password-repeat') 请重复输入
-      input#password-repeat.form-control(type='password', name='password-repeat', placeholder='请重复输入', required, oninput="check(this)")
+      input#password-repeat.form-control(type='password', name='password-repeat'
+        placeholder='请重复输入', required, oninput="check(this)")
     button#submitbtn.btn.btn-lg.btn-primary.btn-block(type='submit') 注册
   script.
     function check(input) {
